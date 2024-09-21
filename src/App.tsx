@@ -6,6 +6,7 @@ import PageContainer from "./components/layout/menuTop/pageContainer/PageContain
 import ProductsContainer from "./components/productsPage/ProductsContainer";
 import HomePage from "./components/homePage/HomePage";
 import ProductContainer from "./components/productPage/ProductContainer";
+import AddProductContainer from "./components/addProductPage/AddProductContainer";
 
 function App() {
   return (
@@ -26,13 +27,15 @@ function App() {
               <Route
                 path="/add-product"
                 element={
-                  <PageContainer title="Add books">Add book</PageContainer>
+                  <PageContainer title="Add product">
+                    <AddProductContainer />
+                  </PageContainer>
                 }
               />
               <Route
                 path="/products"
                 element={
-                  <PageContainer title="Books">
+                  <PageContainer title="Product">
                     <ProductsContainer />
                   </PageContainer>
                 }
