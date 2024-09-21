@@ -5,13 +5,13 @@ import "./App.css";
 import PageContainer from "./components/layout/menuTop/pageContainer/PageContainer";
 import ProductsContainer from "./components/productsPage/ProductsContainer";
 import HomePage from "./components/homePage/HomePage";
+import ProductContainer from "./components/productPage/ProductContainer";
 
 function App() {
   return (
     <Router>
       <ProductsProvider>
         <div className="flex flex-col">
-          test
           <MenuTop />
           <div>
             <Routes>
@@ -34,6 +34,14 @@ function App() {
                 element={
                   <PageContainer title="Books">
                     <ProductsContainer />
+                  </PageContainer>
+                }
+              />
+              <Route
+                path="/product/:isbn"
+                element={
+                  <PageContainer title="Product">
+                    <ProductContainer />
                   </PageContainer>
                 }
               />

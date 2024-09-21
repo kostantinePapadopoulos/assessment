@@ -4,7 +4,11 @@ const MenuTop = () => {
   return (
     <div className={styles.header}>
       <Link className={styles.navLink} to="/">
-        <img src="images/logos/logo.png" alt="logo" />
+        <img
+          style={{ height: "30px" }}
+          src="/images/logos/logo.png"
+          alt="logo"
+        />
       </Link>
       <div className={styles.navLinks}>
         <Link className={styles.navLink} to="/products">
