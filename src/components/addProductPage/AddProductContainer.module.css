@@ -1,12 +1,23 @@
-.container {
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px
+}
+
+.container2Cells {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px
+}
+
+.container1Cells {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px
 }
 
 @media (min-width: 768px) {
-  .container {
+  .container2Cells {
     grid-template-columns: repeat(2, 1fr);
-
   }
 }

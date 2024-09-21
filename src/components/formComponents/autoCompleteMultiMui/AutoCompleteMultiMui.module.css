@@ -1,6 +1,6 @@
 .formGroup {
   position: relative;
-  padding: 15px 0 0;
+  padding: 18px 0 0;
   margin-top: 10px;
   width: 100%;
 }
@@ -12,9 +12,7 @@
   border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
   border-image-slice: 1;
   outline: 0;
-  font-size: 1.3rem;
   color: black;
-  padding: 7px 0;
   background: transparent;
 }
 

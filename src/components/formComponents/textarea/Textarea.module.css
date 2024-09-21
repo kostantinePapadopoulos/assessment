@@ -16,6 +16,8 @@
   color: black;
   padding: 7px 0;
   background: transparent;
+  resize: vertical;
+  min-height: 100px;
 }
 
 .formLabel {

@@ -98,3 +98,39 @@ export const initialProducts = [
     website: "https://doi.org/10.1007/978-1-4842-4221-6",
   },
 ];
+
+export const bookAuthors = [
+  "Marijn Haverbeke",
+  "Nicolás Bevacqua",
+  "Nicholas C. Zakas",
+  "Axel Rauschmayer",
+  "Addy Osmani",
+  "Kyle Simpson",
+  "Scott Chacon and Ben Straub",
+  "Caitlin Sadowski, Thomas Zimmermann",
+  "Douglas Crockford",
+  "David Flanagan",
+  "John Resig",
+  "Ethan Brown",
+  "Eric Elliott",
+  "Robert C. Martin",
+  "Martin Fowler",
+  "David Heinemeier Hansson",
+  "Kent Beck",
+  "Brendan Eich",
+  "Dan Abramov",
+  "Sarah Drasner",
+];
+
+export const bookCategories = [
+  "Fiction",
+  "Non-fiction",
+  "Mystery",
+  "Science Fiction",
+  "Fantasy",
+  "Biography",
+  "History",
+  "Romance",
+  "Thriller",
+  "Self-help",
+];

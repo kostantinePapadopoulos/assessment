@@ -19,7 +19,7 @@ function App() {
               <Route
                 path="/"
                 element={
-                  <PageContainer title="Home">
+                  <PageContainer title="Netcompany assessment">
                     <HomePage />
                   </PageContainer>
                 }
