@@ -1,0 +1,26 @@
+.header {
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navLink {
+  color: white;
+  font-size: 20px;
+  transition: color 200ms;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: var(--secondary-color);
+}

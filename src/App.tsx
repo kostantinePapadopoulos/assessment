@@ -1,25 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ProductsProvider } from "./utils/contexts/products/ProductsContext";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import MenuTop from "./components/layout/menuTop/MenuTop";
+import "./App.css";
+import PageContainer from "./components/layout/menuTop/pageContainer/PageContainer";
+import ProductsContainer from "./components/productsPage/ProductsContainer";
+import HomePage from "./components/homePage/HomePage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ProductsProvider>
+        <div className="flex flex-col">
+          <MenuTop />
+          <div>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PageContainer title="Home">
+                    <HomePage />
+                  </PageContainer>
+                }
+              />
+              <Route
+                path="/add-product"
+                element={
+                  <PageContainer title="Add books">Add book</PageContainer>
+                }
+              />
+              <Route
+                path="/products"
+                element={
+                  <PageContainer title="Books">
+                    <ProductsContainer />
+                  </PageContainer>
+                }
+              />
+            </Routes>
+          </div>
+        </div>
+      </ProductsProvider>
+    </Router>
   );
 }
 

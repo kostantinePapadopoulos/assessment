@@ -1,0 +1,12 @@
+.container {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 3rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
