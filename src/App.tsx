@@ -11,6 +11,7 @@ function App() {
     <Router>
       <ProductsProvider>
         <div className="flex flex-col">
+          test
           <MenuTop />
           <div>
             <Routes>
