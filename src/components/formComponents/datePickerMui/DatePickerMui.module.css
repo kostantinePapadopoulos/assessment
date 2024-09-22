@@ -1,0 +1,21 @@
+.formGroup {
+  position: relative;
+  padding: 18px 0 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+
+.formLabel {
+  position: absolute;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  top: 0px;
+  display: block;
+  padding-bottom: 6px;
+  border-width: 3px;
+  border-image: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-image-slice: 1;
+}

@@ -11,6 +11,6 @@ export interface Book {
 }
 
 export interface ProductContextType {
-  products: Book[];
-  addProduct: (newProduct: Book) => void;
+  products: Book[] | [];
+  addProduct?: (newProduct: Book) => void;
 }

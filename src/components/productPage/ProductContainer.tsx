@@ -13,8 +13,7 @@ const ProductContainer = () => {
   const { products } = context;
   const product = products.find((product: Book) => product.isbn == isbn);
   console.log(product);
-  if (!product) return <>Error on loading product</>;
 
-  return <> {product.title} </>;
+  return <> {product?.title} </>;
 };
 export default ProductContainer;

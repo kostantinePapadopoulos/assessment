@@ -7,9 +7,10 @@ interface ProductsProviderProps {
   children: ReactNode;
 }
 
-const ProductsContext = createContext<ProductContextType | undefined>(
-  undefined
-);
+const ProductsContext = createContext<ProductContextType>({
+  products: [],
+  addProduct: undefined,
+});
 
 const ProductsProvider = ({ children }: ProductsProviderProps) => {
   const [products, setProducts] = useState<Book[]>(initialProducts);

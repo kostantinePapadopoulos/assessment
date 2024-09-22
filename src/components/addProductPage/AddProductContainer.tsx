@@ -9,9 +9,11 @@ import { bookAuthors, bookCategories } from "../../utils/initialDataProducts";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../../utils/contexts/products/ProductsContext";
 import { Book } from "../../interfaces/interfaces";
-import ModalSuccess from "./ModalSuccess";
 import Button from "../formComponents/button/Button";
-import ModalFail from "./ModalFail";
+import ModalLayout from "../layout/modal/ModalLayout";
+import ModalSuccessContent from "./modalContents/ModalSuccessContent";
+import ModalFailContent from "./modalContents/ModalFailContent";
+import DatePickerMui from "../formComponents/datePickerMui/DatePickerMui";
 
 const schema = yup.object({
   title: yup
@@ -83,13 +85,18 @@ const schema = yup.object({
     .max(9999, "Pages maximum is 9999")
     .required("Pages are required"),
 
-  published: yup.string().nullable(),
-  // .required("Date is required"),
+  published: yup
+    .date()
+    .typeError("Published must be a valid date")
+    .nullable()
+    .required("Published is required"),
 });
 
 const AddProductContainer = () => {
-  const [modalSuccessOpen, setModalSuccessOpen] = useState<boolean>(false);
-  const [modalFailOpen, setModalFailOpen] = useState<boolean>(false);
+  const [modalContentsOpen, setModalContentsOpen] = useState<
+    null | "fail" | "success"
+  >(null);
+
   const {
     register,
     handleSubmit,
@@ -121,20 +128,19 @@ const AddProductContainer = () => {
 
   const { products, addProduct } = context;
   const onSave = (data: any) => {
-    const sameBook = products.find(
+    const sameBookExists = products.find(
       (product: Book) =>
         product.isbn == data.isbn || product.title == data.title
     );
-    if (sameBook) {
-      setModalFailOpen(true);
+    if (sameBookExists) {
+      setModalContentsOpen("fail");
     } else {
-      addProduct(data);
+      addProduct && addProduct(data);
+      setModalContentsOpen("success");
       reset();
-      setModalSuccessOpen(true);
     }
   };
 
-  console.log(errors);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.container1Cells}>
@@ -171,7 +177,6 @@ const AddProductContainer = () => {
           control={control}
           name="category"
           label="Category"
-          register={register}
           errors={errors}
           required
           options={bookCategories}
@@ -205,11 +210,18 @@ const AddProductContainer = () => {
           register={register}
           errors={errors}
         />
-        <Input
+        {/* <Input
           name="published"
           label="Published"
           required
           register={register}
+          errors={errors}
+        /> */}
+        <DatePickerMui
+          name="published"
+          label="Published"
+          required
+          control={control}
           errors={errors}
         />
         <Input
@@ -224,11 +236,20 @@ const AddProductContainer = () => {
         <Button label="Reset" onClick={() => reset()} />
         <Button label="Save" onClick={handleSubmit(onSave)} />
       </div>
-      <ModalSuccess
-        open={modalSuccessOpen}
-        onClose={() => setModalSuccessOpen(false)}
-      />
-      <ModalFail open={modalFailOpen} onClose={() => setModalFailOpen(false)} />
+
+      {modalContentsOpen && (
+        <ModalLayout
+          contents={
+            modalContentsOpen == "success" ? (
+              <ModalSuccessContent onClose={() => setModalContentsOpen(null)} />
+            ) : modalContentsOpen == "fail" ? (
+              <ModalFailContent onClose={() => setModalContentsOpen(null)} />
+            ) : null
+          }
+          open={modalContentsOpen ? true : false}
+          onClose={() => setModalContentsOpen(null)}
+        />
+      )}
     </div>
   );
 };

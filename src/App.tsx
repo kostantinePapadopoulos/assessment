@@ -2,7 +2,7 @@ import { ProductsProvider } from "./utils/contexts/products/ProductsContext";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import MenuTop from "./components/layout/menuTop/MenuTop";
 import "./App.css";
-import PageContainer from "./components/layout/menuTop/pageContainer/PageContainer";
+import PageContainer from "./components/layout/pageContainer/PageContainer";
 import ProductsContainer from "./components/productsPage/ProductsContainer";
 import HomePage from "./components/homePage/HomePage";
 import ProductContainer from "./components/productPage/ProductContainer";
@@ -35,7 +35,7 @@ function App() {
               <Route
                 path="/products"
                 element={
-                  <PageContainer title="Product">
+                  <PageContainer title="Products List">
                     <ProductsContainer />
                   </PageContainer>
                 }
