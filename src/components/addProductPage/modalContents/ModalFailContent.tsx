@@ -1,6 +1,7 @@
+import { DialogTitle } from "@mui/material";
 import ButtonSmall from "../../formComponents/buttonSmall/ButtonSmall";
 import FeedbackIcon from "@mui/icons-material/Feedback";
-import { DialogTitle } from "@mui/material";
+
 interface ModalFailContentProps {
   onClose: () => void;
 }

@@ -1,19 +1,19 @@
-import Input from "../formComponents/input/Input";
-import styles from "./AddProductContainer.module.css";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { ProductsContext } from "../../utils/contexts/products/ProductsContext";
+import Input from "../formComponents/input/Input";
 import Textarea from "../formComponents/textarea/Textarea";
 import AutoCompleteMultiMui from "../formComponents/autoCompleteMultiMui/AutoCompleteMultiMui";
-import { bookAuthors, bookCategories } from "../../utils/initialDataProducts";
-import { useContext, useState } from "react";
-import { ProductsContext } from "../../utils/contexts/products/ProductsContext";
-import { Book } from "../../interfaces/interfaces";
+import DatePickerMui from "../formComponents/datePickerMui/DatePickerMui";
 import Button from "../formComponents/button/Button";
 import ModalLayout from "../layout/modal/ModalLayout";
 import ModalSuccessContent from "./modalContents/ModalSuccessContent";
 import ModalFailContent from "./modalContents/ModalFailContent";
-import DatePickerMui from "../formComponents/datePickerMui/DatePickerMui";
+import { bookAuthors, bookCategories } from "../../utils/initialDataProducts";
+import { Book } from "../../interfaces/interfaces";
+import styles from "./AddProductContainer.module.css";
 
 const schema = yup.object({
   title: yup
@@ -42,14 +42,14 @@ const schema = yup.object({
     .of(yup.string().required("Category is required"))
     .test({
       message: "You have to add at least one category",
-      test: (arr: any) => arr.length != 0,
+      test: (arr: any) => arr.length !== 0,
     }),
   author: yup
     .array()
     .of(yup.string().required("Author is required"))
     .test({
       message: "You have to add at least one authors, and maximum 3 authors",
-      test: (arr: any) => arr.length != 0 && arr.length <= 3,
+      test: (arr: any) => arr.length !== 0 && arr.length <= 3,
     }),
   publisher: yup
     .string()
@@ -130,7 +130,7 @@ const AddProductContainer = () => {
   const onSave = (data: any) => {
     const sameBookExists = products.find(
       (product: Book) =>
-        product.isbn == data.isbn || product.title == data.title
+        product.isbn === data.isbn || product.title === data.title
     );
     if (sameBookExists) {
       setModalContentsOpen("fail");
@@ -210,13 +210,6 @@ const AddProductContainer = () => {
           register={register}
           errors={errors}
         />
-        {/* <Input
-          name="published"
-          label="Published"
-          required
-          register={register}
-          errors={errors}
-        /> */}
         <DatePickerMui
           name="published"
           label="Published"
@@ -240,9 +233,9 @@ const AddProductContainer = () => {
       {modalContentsOpen && (
         <ModalLayout
           contents={
-            modalContentsOpen == "success" ? (
+            modalContentsOpen === "success" ? (
               <ModalSuccessContent onClose={() => setModalContentsOpen(null)} />
-            ) : modalContentsOpen == "fail" ? (
+            ) : modalContentsOpen === "fail" ? (
               <ModalFailContent onClose={() => setModalContentsOpen(null)} />
             ) : null
           }

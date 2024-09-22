@@ -1,5 +1,10 @@
 import styles from "./ButtonSmall.module.css";
-const ButtonSmall = ({ onClick, label }: any) => {
+
+interface ButtonSmallProps {
+  onClick: () => void;
+  label: string;
+}
+const ButtonSmall = ({ onClick, label }: ButtonSmallProps) => {
   return (
     <input
       className={styles.button}

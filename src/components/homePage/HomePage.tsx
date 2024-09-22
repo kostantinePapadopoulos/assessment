@@ -1,6 +1,6 @@
 const HomePage = () => {
   return (
-    <div style={{}}>
+    <div>
       <main style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <div style={{ fontSize: "1.25rem" }}>Core</div>
         <ol

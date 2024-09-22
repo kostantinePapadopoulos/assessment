@@ -11,7 +11,7 @@ const AutoCompleteMultiMui: any = ({
   onChange,
   options,
 }: any) => {
-  if (!options || options.length == 0) return;
+  if (!options || options.length === 0) return;
 
   return (
     <Controller

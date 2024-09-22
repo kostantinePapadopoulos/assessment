@@ -1,15 +1,12 @@
 .productCard {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   padding: 20px;
-
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: space-between;
-
   border-top: 4px solid var(--secondary-color);
   border-radius: 8px;
-
   cursor: pointer;
   transition: transform 0.2s;
 }

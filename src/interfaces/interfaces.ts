@@ -2,12 +2,14 @@ export interface Book {
   isbn: string;
   title: string;
   subtitle: string;
-  author: string;
-  published: string; // ISO date string format
+  author: string | string[];
+  published: string;
   publisher: string;
   pages: number;
   description: string;
   website: string;
+  category?: string[];
+  year?: number;
 }
 
 export interface ProductContextType {

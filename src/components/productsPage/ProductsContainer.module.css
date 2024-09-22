@@ -1,3 +1,32 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.searchInputContainer {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+}
+
+.searchInputIcon {
+  position: absolute;
+  right: 5px;
+  font-size: 30px !important;
+  color: var(--primary-color);
+}
+
+.searchInput {
+  padding: 10px 40px 10px 10px;
+  font-size: 1.2rem;
+  width: 100%;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
 .container {
   display: grid;
   gap: 20px;
@@ -10,14 +39,12 @@
   }
 }
 
-
 @media (min-width: 1024px) {
   .container {
     grid-template-columns: repeat(3, 1fr);
 
   }
 }
-
 
 @media (min-width: 1280px) {
   .container {

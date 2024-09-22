@@ -1,0 +1,68 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 20px;
+  overflow: hidden;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 20px;
+
+}
+
+.valueContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+}
+
+.grandValuesContainer {
+  grid-column: span 3 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.valuesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .mainContainer {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.titleContainer .label {
+  color: var(--secondary-color);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.titleContainer .value {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+
+.titleContainer .value2 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+.valueContainer .label {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.valueContainer .value {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
